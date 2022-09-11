@@ -1,0 +1,238 @@
+:root {
+    --color-light: white;
+    --color-dark: #212121;
+    --color-signal: #fab700;
+
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    --color-accent: var(--color-signal);
+
+    --size-bezel: .5rem;
+    --size-radius: 4px;
+
+    line-height: 1.4;
+
+    font-family: 'Inter', sans-serif;
+    font-size: calc(.6rem + .4vw);
+    color: var(--color-text);
+    background: var(--color-background);
+    font-weight: 300;
+    /* padding: 0 calc(var(--size-bezel) * 3); */
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0 !important;
+}
+
+.customForm {
+    /* background-color: #dac2f3; */
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 2px #7026b9;
+
+    background: var(--color-background);
+    padding: calc(4 * var(--size-bezel));
+    /* margin-top: calc(4 * var(--size-bezel)); */
+    border-radius: var(--size-radius);
+    border: 3px solid var(--color-shadow, currentColor);
+    box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
+    max-width: 25%;
+    width: 25%;
+    float: left;
+    left: 150px;
+}
+
+.input {
+    position: relative;
+}
+
+.input__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+    background: pink;
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: var(--color-background);
+    transition: transform 120ms ease-in;
+    font-weight: 500;
+    font-size: smaller;
+    line-height: 0.5;
+}
+
+.input__field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 3px solid currentColor;
+    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+    color: currentColor;
+    background: transparent;
+    border-radius: var(--size-radius);
+    font-size: medium;
+
+    /* &:focus,
+    &:not(:placeholder-shown) {
+      & + .input__label {
+        transform: translate(.25rem, -65%) scale(.8);
+        color: var(--color-accent);
+      }
+    } */
+}
+
+/* .input:focus+.input__label {
+    transform: translate(.25rem, -65%) scale(.8);
+    color: var(--color-accent);
+
+} */
+
+.customOption {
+    background-color: var(--color-text);
+    color: var(--color-background);
+    /* top: 100%; */
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+
+button {
+    color: currentColor;
+    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+    /* background: var(--color-accent); */
+    border: none;
+    border-radius: var(--size-radius);
+    font-weight: 900;
+    cursor: pointer;
+    background-color: var(--color-text);
+    color: var(--color-background);
+}
+
+
+.instructions {
+    position: absolute;
+    float: right;
+    right: 150px;
+    width: 30%;
+    max-width: 30%;
+}
+
+.instructionsList {
+    line-height: 2;
+    font-weight: 400;
+}
+
+
+
+
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--black);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.35s ease-in;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.modal-dialog {
+    position: relative;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 5px;
+    background: var(--white);
+    overflow: auto;
+    cursor: default;
+}
+
+.modal-dialog>* {
+    padding: 1rem;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.modal-header .modal-close {
+    font-size: 1.5rem;
+}
+
+.modal p+p {
+    margin-top: 1rem;
+}
+
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 5s linear 300ms, opacity 300ms;
+}
+
+.modal.is-visible {
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+}
+
+.modal-footer {
+    padding-bottom: 50px;
+    height: fit-content;
+}
+
+.modalCloseButton {
+    position: relative;
+    /* margin-left: auto; */
+    float: right;
+    background-color: var(--color-text);
+    color: var(--color-background);
+}
+
+
+#overlay {
+    position: fixed;
+    /* Sit on top of the page content */
+    display: none;
+    /* Hidden by default */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+    z-index: 99;
+    /* Specify a stack order in case you're using a different order for other elements */
+    /* cursor: pointer; */
+    /* Add a pointer on hover */
+}
