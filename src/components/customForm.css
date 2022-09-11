@@ -130,6 +130,10 @@ button {
     font-weight: 400;
 }
 
+.envelopeHelper{
+    color: blue;
+    cursor: pointer;
+}
 
 
 

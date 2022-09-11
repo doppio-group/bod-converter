@@ -65,7 +65,7 @@ function CustomForm() {
                     <li>Select the required BOD Verb</li>
                     <li>Select the required BOD Direction</li>
                     <li>Enter the BOD Prefix. <i>This is optional. If empty, "M3BOD" will be used as the prefix</i></li>
-                    <li>Provide the Custom Envelope XML if needed. Click <i>here</i> for an example</li>
+                    <li>Provide the Custom Envelope XML if needed. Click <i className="envelopeHelper" id="envelopeHelper" onClick={customEnvelopeModal}>here</i> for an example</li>
                     <li>Click the Convert button and wait for a few seconds</li>
                     <li>The output file will be downloaded</li>
                 </ol>
@@ -277,6 +277,95 @@ function errorMessagesModal(errorMessages) {
 
     }
 
+}
+
+function customEnvelopeModal() {
+    var envelopeModal = document.createElement("div");
+    envelopeModal.className = "modal";
+    envelopeModal.id = "envelopeModal";
+
+    var envelopeModalDialog = document.createElement("div");
+    envelopeModalDialog.className = "modal-dialog";
+
+    var envelopeModalHeader = document.createElement("header");
+    envelopeModalHeader.className = "modal-header";
+    envelopeModalHeader.textContent = "Custom Envelope Example"
+
+    var envelopeModalContent = document.createElement("section");
+    envelopeModalContent.className = "modal-content";
+
+    // var envelopeList = document.createElement("ul");
+
+    // for (let index = 0; index < envelopeMessages.length; index++) {
+    //     const envelopeMessage = envelopeMessages[index];
+
+    //     var envelopeElement = document.createElement("li");
+    //     envelopeElement.textContent = envelopeMessage;
+    //     envelopeList.appendChild(envelopeElement);
+
+    // }
+
+    var envelopeXML = document.createElement("pre");
+    envelopeXML.lang = "xml";
+
+    envelopeXML.innerText = `<EDI_Envelope>
+	<Header>
+		<Message>message</Message>
+		<Document>document</Document>
+		<TradingPartner>tradingPartner</TradingPartner>
+		<PartnerCode>partnerCode</PartnerCode>
+	</Header>
+	<Body>
+		<BODConverterToolRoot>BODConverterToolRoot</BODConverterToolRoot>
+	</Body>
+</EDI_Envelope>`;
+
+    envelopeModalContent.appendChild(envelopeXML);
+
+
+    var envelopeModalFooter = document.createElement("footer");
+    envelopeModalFooter.className = "modal-footer";
+
+    var closeButton = document.createElement("button");
+    closeButton.className = "modalCloseButton";
+    closeButton.textContent = "Close";
+
+    envelopeModalFooter.appendChild(closeButton);
+
+    envelopeModal.appendChild(envelopeModalDialog);
+    envelopeModalDialog.appendChild(envelopeModalHeader);
+    envelopeModalDialog.appendChild(envelopeModalContent);
+    envelopeModalDialog.appendChild(envelopeModalFooter);
+
+
+    var overLay = document.createElement("div");
+    overLay.id = "overlay";
+
+    document.body.appendChild(overLay);
+    document.body.appendChild(envelopeModal);
+
+
+
+    const openEls = document.querySelectorAll("[data-open]");
+    const isVisible = "is-visible";
+
+    // for (const el of openEls) {
+    //     el.addEventListener("click", function () {
+    //         const modalId = this.dataset.open;
+    //         document.getElementById(modalId).classList.add(isVisible);
+    //     });
+    // }
+
+    document.getElementById("envelopeModal").classList.add(isVisible);
+    document.getElementById("overlay").style.display = "block";
+
+
+    closeButton.onclick = function (event) {
+        console.log(event);
+        document.getElementById("overlay").remove();
+        document.getElementById("envelopeModal").remove();
+
+    }
 }
 
 export default CustomForm
