@@ -5,16 +5,6 @@ import "./nightMode.css"
 
 function nightMode() {
 
-    // const checkbox = document.getElementById('nightModeCheckBox');
-    // console.log(checkbox)
-    // checkbox.addEventListener('change', () => {
-    //     document.body.classList.toggle('dark');
-    // })
-    document.addEventListener("DOMContentLoaded", function (event) {
-        //do work
-        console.log("Yes");
-    });
-
     return (
         <div className="nightModeSwitcher">
             <input type="checkbox" className="checkbox" id="nightModeCheckBox" onChange={switcher} />
