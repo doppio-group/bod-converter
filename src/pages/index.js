@@ -6,7 +6,7 @@ import * as styles from "../components/index.module.css"
 
 import CustomForm from "../components/customForm"
 import { NightMode } from "../components/nightMode"
-
+import "../components/index.css"
 
 const IndexPage = () => (
 
@@ -18,9 +18,11 @@ const IndexPage = () => (
                     <NightMode />
                 </div>
             </div>
-            <h1>
-                <b>BOD Converter</b>
-            </h1>
+            <div className="pageTitleDiv">
+                <h1 className="pageTitle">
+                    <b>BOD Converter</b>
+                </h1>
+            </div>
         </div>
         <CustomForm />
     </Layout>
