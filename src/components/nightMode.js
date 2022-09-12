@@ -59,7 +59,7 @@ export const NightMode = () => {
                 <div className='ball' />
             </label> */}
             {currentDarkMode ?
-                <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={switcher} checked />
+                <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={switcher} />
                 : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={switcher} />}
 
             <label htmlFor="nightModeCheckBox" className="switch_bg">
