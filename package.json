@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "font-awesome": "^4.7.0",
     "gatsby": "^4.22.1",
     "gatsby-plugin-image": "^2.22.0",
