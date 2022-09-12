@@ -12,8 +12,12 @@ import {
 export const NightMode = () => {
 
     var currentDarkMode = false;
+    const isBrowser = typeof window !== "undefined"
 
     useComponentDidMount(() => {
+        if (!isBrowser) {
+            return;
+        }
         var defaultDarkMode = window.localStorage.getItem("darkMode");
         var checkbox = document.getElementById('nightModeCheckBox');
 
@@ -35,6 +39,9 @@ export const NightMode = () => {
     });
 
     (function () {
+        if (!isBrowser) {
+            return;
+        }
         var defaultDarkMode = window.localStorage.getItem("darkMode");
         var checkbox = document.getElementById('nightModeCheckBox');
 
