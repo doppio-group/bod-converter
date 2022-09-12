@@ -11,12 +11,14 @@ import {
 
 export const NightMode = () => {
 
+    var currentDarkMode = false;
+
     useComponentDidMount(() => {
         var defaultDarkMode = window.localStorage.getItem("darkMode");
         var checkbox = document.getElementById('nightModeCheckBox');
-        
+
         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
-        
+
         console.log("Default Dark Mode: " + defaultDarkMode);
 
         checkbox.checked = defaultDarkMode;
@@ -32,6 +34,15 @@ export const NightMode = () => {
         }
     });
 
+    (function () {
+        var defaultDarkMode = window.localStorage.getItem("darkMode");
+        var checkbox = document.getElementById('nightModeCheckBox');
+
+        defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+        currentDarkMode = defaultDarkMode;
+
+        console.log("Current Dark Mode: " + currentDarkMode);
+    })();
     return (
         <div className="nightModeSwitcher">
             {/* <input type="checkbox" className="checkbox" id="nightModeCheckBox" onChange={switcher} />
@@ -40,7 +51,10 @@ export const NightMode = () => {
                 <FaSun color='yellow' size={'15px'} />
                 <div className='ball' />
             </label> */}
-            <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={switcher} />
+            {currentDarkMode ?
+                <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={switcher} checked />
+                : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={switcher} />}
+
             <label htmlFor="nightModeCheckBox" className="switch_bg">
                 <div className="switch_slider"></div>
                 <div className="switch_button">
