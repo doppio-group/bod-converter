@@ -23,7 +23,7 @@ export const NightMode = () => {
 
         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
-        console.log("Default Dark Mode: " + defaultDarkMode);
+        // console.log("Default Dark Mode: " + defaultDarkMode);
 
         checkbox.checked = defaultDarkMode;
 
@@ -49,6 +49,27 @@ export const NightMode = () => {
         currentDarkMode = defaultDarkMode;
 
         console.log("Current Dark Mode: " + currentDarkMode);
+
+        setTimeout(() => {
+            var defaultDarkMode = window.localStorage.getItem("darkMode");
+            var checkbox = document.getElementById('nightModeCheckBox');
+
+            defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+
+            // console.log("Default Dark Mode: " + defaultDarkMode);
+
+            checkbox.checked = defaultDarkMode;
+
+            if (checkbox.checked) {
+                document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+                document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+
+            } else {
+                document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+                document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+
+            }
+        }, 100);
     })();
     return (
         <div className="nightModeSwitcher">
@@ -100,7 +121,7 @@ export const NightMode = () => {
 
 function switcher(event) {
     const checkbox = document.getElementById('nightModeCheckBox');
-    console.log(checkbox)
+    // console.log(checkbox)
     // checkbox.addEventListener('change', () => {
     //     if(checkbox.ariaChecked){
     //         document.body.classList.add('dark');

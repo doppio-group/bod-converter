@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { render } from 'react-dom'
 
 import * as Styles from "../components/customForm.css"
+import Loading from './loading'
 
 function CustomForm() {
 
@@ -88,6 +90,8 @@ function convertBOD() {
         return;
     }
 
+    createLoadingModal();
+
 
     // WARNING: For POST requests, body is set to null by browsers.
     var data = new FormData();
@@ -105,6 +109,8 @@ function convertBOD() {
         var _this = this;
         if (_this.readyState === 4) {
             console.log(_this);
+
+            document.getElementById("overlay").parentElement.remove();
 
             if (_this.status === 200) {
                 //*OK
@@ -203,6 +209,65 @@ function validateInputs() {
     return isValid;
 }
 
+function createLoadingModal() {
+    console.log("Loading modal...");
+
+    // var overLay = document.createElement("div");
+    // overLay.id = "overlay";
+    // document.body.appendChild(overLay);
+
+    var a = document.createElement("div");
+    document.body.appendChild(a);
+
+    render(
+        <>
+            <div id='overlay'></div>
+            <div className='modal' id='loadingModal'>
+                <div className='modal-dialog'>
+                    <div className='modal-content'>
+                        <Loading />
+                    </div>
+                </div>
+            </div>
+        </>
+
+        , a
+    )
+
+
+
+
+    const isVisible = "is-visible";
+    document.getElementById("loadingModal").classList.add(isVisible);
+    document.getElementById("overlay").style.display = "block";
+
+    //     var loadingModal = document.createElement("div");
+    //     loadingModal.className = "modal";
+    //     loadingModal.id = "loadingModal";
+
+    //     var loadingModalDialog = document.createElement("div");
+    //     loadingModalDialog.className = "modal-dialog";
+
+    //     // var loadingModalHeader = document.createElement("header");
+    //     // loadingModalHeader.className = "modal-header";
+    //     // loadingModalHeader.textContent = "Error!"
+
+    //     var loadingModalContent = document.createElement("section");
+    //     loadingModalContent.className = "modal-content";
+
+    //     loadingModalDialog.appendChild(loadingModalContent);
+    //     loadingModal.appendChild(loadingModalDialog);
+
+    //     var overLay = document.createElement("div");
+    //     overLay.id = "overlay";
+
+    //     document.body.appendChild(overLay);
+    //     document.body.appendChild(loadingModal);
+
+    //     const isVisible = "is-visible";
+    //     document.getElementById("loadingModal").classList.add(isVisible);
+    //     document.getElementById("overlay").style.display = "block";
+}
 
 function errorMessagesModal(errorMessages) {
     var errorModal = document.createElement("div");
