@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 
 import * as Styles from "../components/customForm.css"
+import Footer from './footer'
 import Loading from './loading'
 
 function CustomForm() {

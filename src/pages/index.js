@@ -7,6 +7,7 @@ import * as styles from "../components/index.module.css"
 import CustomForm from "../components/customForm"
 import { NightMode } from "../components/nightMode"
 import "../components/index.css"
+import Footer from "../components/footer"
 
 const IndexPage = () => (
 
@@ -25,6 +26,7 @@ const IndexPage = () => (
             </div>
         </div>
         <CustomForm />
+        <Footer />
     </Layout>
 )
 
