@@ -14,6 +14,7 @@ export class NightMode extends React.Component {
 
         var currentDarkMode = false;;
         const isBrowser = typeof window !== "undefined";
+        var _this = this;
 
         // useComponentDidMount(() => {
         //     if (!isBrowser) {
@@ -60,7 +61,7 @@ export class NightMode extends React.Component {
 
                 // console.log("Default Dark Mode: " + defaultDarkMode);
 
-                checkbox.checked = this.props.isDarkMode;
+                checkbox.checked = _this.props.isDarkMode;
 
                 if (checkbox.checked) {
                     document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
