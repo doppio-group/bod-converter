@@ -9,27 +9,60 @@ import { NightMode } from "../components/nightMode"
 import "../components/index.css"
 import Footer from "../components/footer"
 
-const IndexPage = () => (
+class IndexPage extends React.Component {
 
-    <Layout>
-        <Seo title="Home" />
-        <div className={styles.textCenter}>
-            <div>
-                <div className="nigthModeSwitchDiv">
-                    <NightMode />
+    constructor(props) {
+        super(props)
+
+        this.darkModeHandler = this.darkModeHandler.bind(this)
+        this.state = { isDarkMode: true }
+    }
+
+    darkModeHandler(event) {
+        if (event.target.checked) {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+            localStorage.setItem("darkMode", "true");
+            this.setState({
+                isDarkMode: true
+            })
+            // console.log("Setting state to true");
+
+        } else {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+            localStorage.setItem("darkMode", "false");
+            this.setState({
+                isDarkMode: false
+            })
+            // console.log("Setting state to false");
+        }
+
+    }
+
+    render() {
+        return (
+            <Layout>
+                <Seo title="Home" />
+                <div className={styles.textCenter}>
+                    <div>
+                        <div className="nigthModeSwitchDiv">
+                            <NightMode darkModeHandler={this.darkModeHandler} />
+                        </div>
+                    </div>
+                    <div className="pageTitleDiv">
+                        <h1 className="pageTitle">
+                            <b>BOD Converter</b>
+                        </h1>
+                    </div>
                 </div>
-            </div>
-            <div className="pageTitleDiv">
-                <h1 className="pageTitle">
-                    <b>BOD Converter</b>
-                </h1>
-            </div>
-        </div>
-        <CustomForm />
-        <Footer />
-    </Layout>
-)
+                <CustomForm isDarkMode={this.state.isDarkMode} />
+                {/* <Footer /> */}
+            </Layout >
+        )
+    }
 
+}
 
 
 /**
