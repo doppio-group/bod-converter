@@ -55,7 +55,7 @@ class IndexPage extends React.Component {
                 <div className={styles.textCenter}>
                     <div>
                         <div className="nigthModeSwitchDiv">
-                            <NightMode darkModeHandler={this.darkModeHandler} />
+                            <NightMode isDarkMode={this.state.isDarkMode} darkModeHandler={this.darkModeHandler} />
                         </div>
                     </div>
                     <div className="pageTitleDiv">

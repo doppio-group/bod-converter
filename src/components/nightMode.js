@@ -60,7 +60,7 @@ export class NightMode extends React.Component {
 
                 // console.log("Default Dark Mode: " + defaultDarkMode);
 
-                checkbox.checked = defaultDarkMode;
+                checkbox.checked = this.props.isDarkMode;
 
                 if (checkbox.checked) {
                     document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
@@ -81,7 +81,7 @@ export class NightMode extends React.Component {
                 <FaSun color='yellow' size={'15px'} />
                 <div className='ball' />
             </label> */}
-                {currentDarkMode ?
+                {this.props.isDarkMode ?
                     <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
                     : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />}
 
