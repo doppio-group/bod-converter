@@ -14,7 +14,12 @@ class IndexPage extends React.Component {
     constructor(props) {
         super(props)
 
-        var defaultDarkMode = window.localStorage.getItem("darkMode");
+
+        var defaultDarkMode = false;
+        if (typeof window !== "undefined") {
+            // Client-side-only code
+            window.localStorage.getItem("darkMode");
+        }
         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
         this.darkModeHandler = this.darkModeHandler.bind(this)
