@@ -21,6 +21,7 @@ class CustomForm extends Component {
         var currentDarkMode = false;
         const isBrowser = typeof window !== "undefined";
         var _this = this;
+        console.log(this.props.isDarkMode)
 
         // (function () {
         //     if (!isBrowser) {

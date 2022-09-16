@@ -53,26 +53,26 @@ export class NightMode extends React.Component {
 
             console.log("Current Dark Mode: " + currentDarkMode);
 
-            setTimeout(() => {
-                var defaultDarkMode = window.localStorage.getItem("darkMode");
-                var checkbox = document.getElementById('nightModeCheckBox');
+            // setTimeout(() => {
+            //     var defaultDarkMode = window.localStorage.getItem("darkMode");
+            //     var checkbox = document.getElementById('nightModeCheckBox');
 
-                defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+            //     defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
-                // console.log("Default Dark Mode: " + defaultDarkMode);
+            //     // console.log("Default Dark Mode: " + defaultDarkMode);
 
-                checkbox.checked = _this.props.isDarkMode;
+            //     checkbox.checked = _this.props.isDarkMode;
 
-                if (checkbox.checked) {
-                    document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
-                    document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+            //     if (checkbox.checked) {
+            //         document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+            //         document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
 
-                } else {
-                    document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
-                    document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+            //     } else {
+            //         document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+            //         document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
 
-                }
-            }, 100);
+            //     }
+            // }, 100);
         })();
         return (
             <div className="nightModeSwitcher">
@@ -82,10 +82,11 @@ export class NightMode extends React.Component {
                 <FaSun color='yellow' size={'15px'} />
                 <div className='ball' />
             </label> */}
-                {this.props.isDarkMode ?
+                {/* {this.props.isDarkMode ?
                     <input type="checkbox" id="nightModeCheckBox" className="checkbox" checked onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
-                    : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />}
-
+                    : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />} */}
+                    
+                    <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} checked={this.props.isDarkMode ? this.props.isDarkMode : false} />
                 <label htmlFor="nightModeCheckBox" className="switch_bg">
                     <div className="switch_slider"></div>
                     <div className="switch_button">
