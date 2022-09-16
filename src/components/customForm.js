@@ -143,14 +143,14 @@ class CustomForm extends Component {
                         {
                             this.props.isDarkMode == true ? <StaticImage
                                 className='logo'
-                                src="../images/dopio-icon-white.png"
-                                width={100}
+                                src="../images/dopio-lockup-white.png"
+                                width={175}
                                 alt={"Doppio Group"}
                                 quality="100"
                             /> : <StaticImage
                                 className='logo'
-                                src="../images/dopio-icon-black.png"
-                                width={100}
+                                src="../images/dopio-lockup-black.png"
+                                width={175}
                                 alt={"Doppio Group"}
                                 quality="100"
                             />

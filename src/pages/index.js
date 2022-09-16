@@ -22,6 +22,8 @@ class IndexPage extends React.Component {
         }
         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
+        console.log("Default dark mode: " + defaultDarkMode)
+
         this.darkModeHandler = this.darkModeHandler.bind(this)
         this.state = { isDarkMode: defaultDarkMode }
     }

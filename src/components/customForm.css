@@ -394,8 +394,8 @@ button {
 
 .doppioLogo {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 7%;
+    top: 5%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
