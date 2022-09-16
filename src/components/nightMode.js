@@ -83,7 +83,7 @@ export class NightMode extends React.Component {
                 <div className='ball' />
             </label> */}
                 {this.props.isDarkMode ?
-                    <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
+                    <input type="checkbox" id="nightModeCheckBox" className="checkbox" checked onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
                     : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />}
 
                 <label htmlFor="nightModeCheckBox" className="switch_bg">
