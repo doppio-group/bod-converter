@@ -25,17 +25,21 @@ class IndexPage extends React.Component {
         console.log("Default dark mode: " + defaultDarkMode)
 
         // if (typeof document !== "undefined") {
-        if (defaultDarkMode == true) {
+
+        // }
+
+        this.darkModeHandler = this.darkModeHandler.bind(this)
+        this.state = { isDarkMode: defaultDarkMode }
+    }
+
+    setDocumentStyle() {
+        if (this.state.isDarkMode == true) {
             document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
         } else {
             document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
         }
-        // }
-
-        this.darkModeHandler = this.darkModeHandler.bind(this)
-        this.state = { isDarkMode: defaultDarkMode }
     }
 
     darkModeHandler(event) {
@@ -61,6 +65,8 @@ class IndexPage extends React.Component {
     }
 
     render() {
+
+        setDocumentStyle()
         return (
             <Layout>
                 <Seo title="Home" />
