@@ -8,6 +8,7 @@ import CustomForm from "../components/customForm"
 import { NightMode } from "../components/nightMode"
 import "../components/index.css"
 import Footer from "../components/footer"
+import { StaticImage } from "gatsby-plugin-image"
 
 class IndexPage extends React.Component {
 
@@ -76,6 +77,31 @@ class IndexPage extends React.Component {
                         </div>
                     </div>
                     <div className="pageTitleDiv">
+                        <div className='doppioLogo'>
+                            {
+                                this.state.isDarkMode === true ? <StaticImage
+                                    className='logo'
+                                    src="../images/dopio-lockup-white.png"
+                                    width={175}
+                                    alt={"Doppio Group"}
+                                    quality="100"
+                                /> : <StaticImage
+                                    className='logo'
+                                    src="../images/dopio-lockup-black.png"
+                                    width={175}
+                                    alt={"Doppio Group"}
+                                    quality="100"
+                                />
+                            }
+                            {this.state.isDarkMode === true ? console.log("dark") : console.log("light")}
+                            {/* <StaticImage
+                                className='logo'
+                                src={this.props.isDarkMode === true ? "../images/dopio-lockup-black.png" : "../images/dopio-lockup-white.png"}
+                                width={175}
+                                alt={"Doppio Group"}
+                                quality="100"
+                            /> */}
+                        </div>
                         <h1 className="pageTitle">
                             <b>BOD Converter</b>
                         </h1>
