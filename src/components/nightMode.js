@@ -120,8 +120,10 @@ export class NightMode extends React.Component {
                 {/* {this.props.isDarkMode ?
                     <input type="checkbox" id="nightModeCheckBox" className="checkbox" checked onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
                     : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />} */}
-
-                <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} checked={this.props.isDarkMode ? this.props.isDarkMode : false} />
+                {this.props.isDarkMode ?
+                    <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} checked />
+                    : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
+                }
                 <label htmlFor="nightModeCheckBox" className="switch_bg">
                     <div className="switch_slider"></div>
                     <div className="switch_button">
