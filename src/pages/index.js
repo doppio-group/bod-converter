@@ -24,7 +24,7 @@ class IndexPage extends React.Component {
 
         console.log("Default dark mode: " + defaultDarkMode)
 
-        if (defaultDarkMode == true) {
+        if (defaultDarkMode == true && typeof document !== "undefined") {
             document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
         } else {

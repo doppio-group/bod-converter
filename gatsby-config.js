@@ -1,5 +1,8 @@
 module.exports = {
     pathPrefix: "/bod-converter",
+    flags: {
+        DEV_SSR: false
+    },
     siteMetadata: {
         title: `BOD Converter`,
         description: `Tool to convert MEC mapping to BOD`,
