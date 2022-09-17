@@ -33,7 +33,19 @@ class IndexPage extends React.Component {
         this.state = { isDarkMode: defaultDarkMode }
     }
 
+
+
     setDocumentStyle() {
+        if (this.state.isDarkMode == true) {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+        } else {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+        }
+    }
+
+    componentDidMount() {
         if (this.state.isDarkMode == true) {
             document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
