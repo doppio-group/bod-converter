@@ -60,18 +60,18 @@ class CustomForm extends Component {
             //     }, 100);
             // })();
 
-            (function () {
-                if (typeof document === "undefined") {
-                    return;
-                }
-                if (_this.props.isDarkMode) {
-                    document.querySelector(':root').style.setProperty('--color-background', 'var(--color-dark)');
-                    document.querySelector(':root').style.setProperty('--color-text', 'var(--color-light)');
-                } else {
-                    document.querySelector(':root').style.setProperty('--color-background', 'var(--color-light)');
-                    document.querySelector(':root').style.setProperty('--color-text', 'var(--color-dark)');
-                }
-            })()
+            // (function () {
+            //     if (typeof document === "undefined") {
+            //         return;
+            //     }
+            //     if (_this.props.isDarkMode) {
+            //         document.querySelector(':root').style.setProperty('--color-background', 'var(--color-dark)');
+            //         document.querySelector(':root').style.setProperty('--color-text', 'var(--color-light)');
+            //     } else {
+            //         document.querySelector(':root').style.setProperty('--color-background', 'var(--color-light)');
+            //         document.querySelector(':root').style.setProperty('--color-text', 'var(--color-dark)');
+            //     }
+            // })()
 
         return (
             <div>
@@ -155,7 +155,7 @@ class CustomForm extends Component {
                     </g>
                 </svg> */}
                         {
-                            this.props.isDarkMode == true ? <StaticImage
+                            this.props.isDarkMode === true ? <StaticImage
                                 className='logo'
                                 src="../images/dopio-lockup-white.png"
                                 width={175}
