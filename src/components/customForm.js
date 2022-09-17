@@ -61,6 +61,9 @@ class CustomForm extends Component {
             // })();
 
             (function () {
+                if (typeof document === "undefined") {
+                    return;
+                }
                 if (this.props.isDarkMode) {
                     document.querySelector(':root').style.setProperty('--color-background', 'var(--color-dark)');
                     document.querySelector(':root').style.setProperty('--color-text', 'var(--color-light)');
