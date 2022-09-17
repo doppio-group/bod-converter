@@ -86,7 +86,7 @@ class IndexPage extends React.Component {
             </Layout >
         )
 
-        setDocumentStyle()
+
     }
 
 }
