@@ -24,15 +24,15 @@ class IndexPage extends React.Component {
 
         console.log("Default dark mode: " + defaultDarkMode)
 
-        if (typeof document !== "undefined") {
-            if (defaultDarkMode == true) {
-                document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
-                document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
-            } else {
-                document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
-                document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
-            }
+        // if (typeof document !== "undefined") {
+        if (defaultDarkMode == true) {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+        } else {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
         }
+        // }
 
         this.darkModeHandler = this.darkModeHandler.bind(this)
         this.state = { isDarkMode: defaultDarkMode }
