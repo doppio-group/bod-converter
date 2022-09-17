@@ -31,4 +31,4 @@ jobs:
        git config --global user.name "Github Actions Bot"
     - run: npm install
     # - run: npm run build --if-present
-    - run: npm run deploy
+    - run: gatsby build --prefix-paths && gh-pages -d public --user \"Github Actions Bot <ajay@doppiogroup.com>\"
