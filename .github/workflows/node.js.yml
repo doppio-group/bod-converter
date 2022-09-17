@@ -35,4 +35,4 @@ jobs:
     - run: npm i gatsby
     - run: npm i gatsby-cli
     # - run: npm run build --if-present
-    - run: npm gatsby build --prefix-paths && gh-pages -d public --user \"Github Actions Bot <ajay@doppiogroup.com>\"
+    # - run: npm gatsby build --prefix-paths && gh-pages -d public --user \"Github Actions Bot <ajay@doppiogroup.com>\"
