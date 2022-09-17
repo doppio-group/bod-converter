@@ -9,31 +9,62 @@ import {
     useComponentWillUnmount
 } from "./utils";
 
-export class NightMode extends React.Component {
-    render() {
+export default NightMode = () => {
 
-        var currentDarkMode = false;;
-        const isBrowser = typeof window !== "undefined";
-        var _this = this;
+    var currentDarkMode = false;;
+    const isBrowser = typeof window !== "undefined";
+    var _this = this;
 
-        useComponentDidMount(() => {
+    useComponentDidMount(() => {
 
-            if (this.props.isDarkMode) {
-                document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
-                document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
-                document.getElementById("")
+        if (this.props.isDarkMode) {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+        } else {
+            document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+            document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
 
-            } else {
-                document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
-                document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+        }
+    })
 
+        // useComponentDidMount(() => {
+        //     if (!isBrowser) {
+        //         return;
+        //     }
+        //     var defaultDarkMode = window.localStorage.getItem("darkMode");
+        //     var checkbox = document.getElementById('nightModeCheckBox');
+
+        //     defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+
+        //     // console.log("Default Dark Mode: " + defaultDarkMode);
+
+        //     checkbox.checked = defaultDarkMode;
+
+        //     if (checkbox.checked) {
+        //         document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
+        //         document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+        //         document.getElementById("")
+
+        //     } else {
+        //         document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+        //         document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+
+        //     }
+        // });
+
+        (function () {
+            if (!isBrowser) {
+                return;
             }
-        })
+            var defaultDarkMode = window.localStorage.getItem("darkMode");
+            var checkbox = document.getElementById('nightModeCheckBox');
 
-            // useComponentDidMount(() => {
-            //     if (!isBrowser) {
-            //         return;
-            //     }
+            defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+            currentDarkMode = defaultDarkMode;
+
+            console.log("Current Dark Mode: " + currentDarkMode);
+
+            // setTimeout(() => {
             //     var defaultDarkMode = window.localStorage.getItem("darkMode");
             //     var checkbox = document.getElementById('nightModeCheckBox');
 
@@ -41,75 +72,41 @@ export class NightMode extends React.Component {
 
             //     // console.log("Default Dark Mode: " + defaultDarkMode);
 
-            //     checkbox.checked = defaultDarkMode;
+            //     checkbox.checked = _this.props.isDarkMode;
 
             //     if (checkbox.checked) {
             //         document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             //         document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
-            //         document.getElementById("")
 
             //     } else {
             //         document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
             //         document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
 
             //     }
-            // });
-
-            (function () {
-                if (!isBrowser) {
-                    return;
-                }
-                var defaultDarkMode = window.localStorage.getItem("darkMode");
-                var checkbox = document.getElementById('nightModeCheckBox');
-
-                defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
-                currentDarkMode = defaultDarkMode;
-
-                console.log("Current Dark Mode: " + currentDarkMode);
-
-                // setTimeout(() => {
-                //     var defaultDarkMode = window.localStorage.getItem("darkMode");
-                //     var checkbox = document.getElementById('nightModeCheckBox');
-
-                //     defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
-
-                //     // console.log("Default Dark Mode: " + defaultDarkMode);
-
-                //     checkbox.checked = _this.props.isDarkMode;
-
-                //     if (checkbox.checked) {
-                //         document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
-                //         document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
-
-                //     } else {
-                //         document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
-                //         document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
-
-                //     }
-                // }, 100);
-            })();
-        return (
-            <div className="nightModeSwitcher">
-                {/* <input type="checkbox" className="checkbox" id="nightModeCheckBox" onChange={switcher} />
+            // }, 100);
+        })();
+    return (
+        <div className="nightModeSwitcher">
+            {/* <input type="checkbox" className="checkbox" id="nightModeCheckBox" onChange={switcher} />
             <label htmlFor="nightModeCheckBox" className="label">
                 <FaMoon color='white' size={'15px'} />
                 <FaSun color='yellow' size={'15px'} />
                 <div className='ball' />
             </label> */}
-                {/* {this.props.isDarkMode ?
+            {/* {this.props.isDarkMode ?
                     <input type="checkbox" id="nightModeCheckBox" className="checkbox" checked onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
                     : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />} */}
 
-                <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} checked={this.props.isDarkMode ? this.props.isDarkMode : false} />
-                <label htmlFor="nightModeCheckBox" className="switch_bg">
-                    <div className="switch_slider"></div>
-                    <div className="switch_button">
-                        <FaMoon className='fa-solid faMoon' color='white' size={'25px'} />
-                        <FaSun className='fa-solid faSun' color='white' size={'25px'} />
-                        {/* <i className="fa-solid fa-moon"></i> */}
-                    </div>
-                </label>
-                {/* <label for="checkbox">
+            <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} checked={this.props.isDarkMode ? this.props.isDarkMode : false} />
+            <label htmlFor="nightModeCheckBox" className="switch_bg">
+                <div className="switch_slider"></div>
+                <div className="switch_button">
+                    <FaMoon className='fa-solid faMoon' color='white' size={'25px'} />
+                    <FaSun className='fa-solid faSun' color='white' size={'25px'} />
+                    {/* <i className="fa-solid fa-moon"></i> */}
+                </div>
+            </label>
+            {/* <label for="checkbox">
                 <input type="checkbox" name="nightModeCheckBox" id="nightModeCheckBox" />
                 <div className="toggle">
                     <svg id="graphic" viewBox="0 0 132.29 132.29" xmlns="http://www.w3.org/2000/svg">
@@ -131,12 +128,11 @@ export class NightMode extends React.Component {
 
                 </div>
             </label> */}
-            </div>
+        </div>
 
-        )
-    }
-
+    )
 }
+
 
 function switcher(event) {
     const checkbox = document.getElementById('nightModeCheckBox');
