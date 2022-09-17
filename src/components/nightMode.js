@@ -11,20 +11,27 @@ import {
 
 export class NightMode extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     componentDidMount() {
-        if (typeof window !== "undefined") {
+        if (typeof window === "undefined") {
             return;
         }
-        var defaultDarkMode = window.localStorage.getItem("darkMode");
-        var checkbox = document.getElementById('nightModeCheckBox');
+        // var defaultDarkMode = window.localStorage.getItem("darkMode");
+        // var checkbox = document.getElementById('nightModeCheckBox');
 
-        defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+        // defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
         // console.log("Default Dark Mode: " + defaultDarkMode);
 
-        checkbox.checked = defaultDarkMode;
+        // checkbox.checked = defaultDarkMode;
 
-        if (checkbox.checked) {
+        console.log("Night mode mounted. Dark Mode: " + this.props.isDarkMode);
+
+        if (this.props.isDarkMode) {
             document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
             document.getElementById("")
