@@ -9,9 +9,6 @@ import {
     useComponentWillUnmount
 } from "./utils";
 
-import React from 'react'
-
-
 export default function NightMode() {
 
     var currentDarkMode = false;;
