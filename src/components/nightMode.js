@@ -12,7 +12,7 @@ import {
 export class NightMode extends React.Component {
 
     componentDidMount() {
-        if (!isBrowser) {
+        if (typeof window !== "undefined") {
             return;
         }
         var defaultDarkMode = window.localStorage.getItem("darkMode");
