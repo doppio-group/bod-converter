@@ -66,7 +66,6 @@ class IndexPage extends React.Component {
 
     render() {
 
-        setDocumentStyle()
         return (
             <Layout>
                 <Seo title="Home" />
@@ -86,6 +85,8 @@ class IndexPage extends React.Component {
                 {/* <Footer /> */}
             </Layout >
         )
+
+        setDocumentStyle()
     }
 
 }
