@@ -23,42 +23,52 @@ class CustomForm extends Component {
         var _this = this;
         console.log(this.props.isDarkMode)
 
-        // (function () {
-        //     if (!isBrowser) {
-        //         return;
-        //     }
-        //     var defaultDarkMode = window.localStorage.getItem("darkMode");
-        //     var checkbox = document.getElementById('nightModeCheckBox');
+            // (function () {
+            //     if (!isBrowser) {
+            //         return;
+            //     }
+            //     var defaultDarkMode = window.localStorage.getItem("darkMode");
+            //     var checkbox = document.getElementById('nightModeCheckBox');
 
-        //     if (checkbox == null || checkbox == undefined) {
-        //         _this.setState({ isDarkMode: false })
-        //         return
-        //     }
+            //     if (checkbox == null || checkbox == undefined) {
+            //         _this.setState({ isDarkMode: false })
+            //         return
+            //     }
 
-        //     defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
-        //     currentDarkMode = defaultDarkMode;
+            //     defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+            //     currentDarkMode = defaultDarkMode;
 
-        //     console.log("Current Dark Mode: " + currentDarkMode);
+            //     console.log("Current Dark Mode: " + currentDarkMode);
 
-        //     setTimeout(() => {
-        //         var defaultDarkMode = window.localStorage.getItem("darkMode");
+            //     setTimeout(() => {
+            //         var defaultDarkMode = window.localStorage.getItem("darkMode");
 
-        //         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
+            //         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
-        //         // console.log("Default Dark Mode: " + defaultDarkMode);
+            //         // console.log("Default Dark Mode: " + defaultDarkMode);
 
-        //         // checkbox.checked = defaultDarkMode;
+            //         // checkbox.checked = defaultDarkMode;
 
-        //         if (checkbox.checked) {
-        //             _this.setState({ isDarkMode: true })
+            //         if (checkbox.checked) {
+            //             _this.setState({ isDarkMode: true })
 
-        //         } else {
-        //             // document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
-        //             // document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
-        //             _this.setState({ isDarkMode: false })
-        //         }
-        //     }, 100);
-        // })();
+            //         } else {
+            //             // document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
+            //             // document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+            //             _this.setState({ isDarkMode: false })
+            //         }
+            //     }, 100);
+            // })();
+
+            (function () {
+                if (this.props.isDarkMode) {
+                    document.querySelector(':root').style.setProperty('--color-background', 'var(--color-dark)');
+                    document.querySelector(':root').style.setProperty('--color-text', 'var(--color-light)');
+                } else {
+                    document.querySelector(':root').style.setProperty('--color-background', 'var(--color-light)');
+                    document.querySelector(':root').style.setProperty('--color-text', 'var(--color-dark)');
+                }
+            })()
 
         return (
             <div>
