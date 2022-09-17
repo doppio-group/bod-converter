@@ -21,13 +21,13 @@ export class NightMode extends React.Component {
             return;
         }
         // var defaultDarkMode = window.localStorage.getItem("darkMode");
-        // var checkbox = document.getElementById('nightModeCheckBox');
+        var checkbox = document.getElementById('nightModeCheckBox');
 
         // defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
         // console.log("Default Dark Mode: " + defaultDarkMode);
 
-        // checkbox.checked = defaultDarkMode;
+        checkbox.checked = this.props.isDarkMode;
 
         console.log("Night mode mounted. Dark Mode: " + this.props.isDarkMode);
 
@@ -111,19 +111,7 @@ export class NightMode extends React.Component {
         })();
         return (
             <div className="nightModeSwitcher">
-                {/* <input type="checkbox" className="checkbox" id="nightModeCheckBox" onChange={switcher} />
-            <label htmlFor="nightModeCheckBox" className="label">
-                <FaMoon color='white' size={'15px'} />
-                <FaSun color='yellow' size={'15px'} />
-                <div className='ball' />
-            </label> */}
-                {/* {this.props.isDarkMode ?
-                    <input type="checkbox" id="nightModeCheckBox" className="checkbox" checked onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
-                    : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />} */}
-                {this.props.isDarkMode ?
-                    <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} checked />
-                    : <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
-                }
+                <input type="checkbox" id="nightModeCheckBox" className="checkbox" onChange={e => { switcher(e); this.props.darkModeHandler(e) }} />
                 <label htmlFor="nightModeCheckBox" className="switch_bg">
                     <div className="switch_slider"></div>
                     <div className="switch_button">
