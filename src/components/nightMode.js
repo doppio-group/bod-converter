@@ -9,7 +9,10 @@ import {
     useComponentWillUnmount
 } from "./utils";
 
-export default NightMode = () => {
+import React from 'react'
+
+
+export default function NightMode() {
 
     var currentDarkMode = false;;
     const isBrowser = typeof window !== "undefined";
