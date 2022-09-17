@@ -30,7 +30,7 @@ jobs:
        git config --global user.email "ajayyadukrishnan@gmail.com"
        git config --global user.name "Github Actions Bot"
     - run: npm install
-    - run: npm i gatsby
-    - run: npm i gatsby-cli
+    - run: npm i -g gatsby
+    - run: npm i -g gatsby-cli
     # - run: npm run build --if-present
-    - run: gatsby build --prefix-paths && gh-pages -d public --user \"Github Actions Bot <ajay@doppiogroup.com>\"
+    - run: npm gatsby build --prefix-paths && gh-pages -d public --user \"Github Actions Bot <ajay@doppiogroup.com>\"
