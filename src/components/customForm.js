@@ -9,69 +9,13 @@ import Loading from './loading'
 
 class CustomForm extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         isDarkMode: false
-    //     };
-    // }
 
     render() {
 
         var currentDarkMode = false;
         const isBrowser = typeof window !== "undefined";
         var _this = this;
-        console.log(this.props.isDarkMode);
-
-            // (function () {
-            //     if (!isBrowser) {
-            //         return;
-            //     }
-            //     var defaultDarkMode = window.localStorage.getItem("darkMode");
-            //     var checkbox = document.getElementById('nightModeCheckBox');
-
-            //     if (checkbox == null || checkbox == undefined) {
-            //         _this.setState({ isDarkMode: false })
-            //         return
-            //     }
-
-            //     defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
-            //     currentDarkMode = defaultDarkMode;
-
-            //     console.log("Current Dark Mode: " + currentDarkMode);
-
-            //     setTimeout(() => {
-            //         var defaultDarkMode = window.localStorage.getItem("darkMode");
-
-            //         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
-
-            //         // console.log("Default Dark Mode: " + defaultDarkMode);
-
-            //         // checkbox.checked = defaultDarkMode;
-
-            //         if (checkbox.checked) {
-            //             _this.setState({ isDarkMode: true })
-
-            //         } else {
-            //             // document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
-            //             // document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
-            //             _this.setState({ isDarkMode: false })
-            //         }
-            //     }, 100);
-            // })();
-
-            // (function () {
-            //     if (typeof document === "undefined") {
-            //         return;
-            //     }
-            //     if (_this.props.isDarkMode) {
-            //         document.querySelector(':root').style.setProperty('--color-background', 'var(--color-dark)');
-            //         document.querySelector(':root').style.setProperty('--color-text', 'var(--color-light)');
-            //     } else {
-            //         document.querySelector(':root').style.setProperty('--color-background', 'var(--color-light)');
-            //         document.querySelector(':root').style.setProperty('--color-text', 'var(--color-dark)');
-            //     }
-            // })()
+        console.log(this.props.isDarkMode)
 
         return (
             <div>
@@ -146,7 +90,7 @@ class CustomForm extends Component {
     }
 }
 
-function convertBOD() {
+async function convertBOD() {
     console.log("Converting...")
 
     const fileInput = document.getElementById("zapFile");
@@ -161,6 +105,8 @@ function convertBOD() {
     }
 
     createLoadingModal();
+
+    await new Promise(r => setTimeout(r, 2000));
 
 
     // WARNING: For POST requests, body is set to null by browsers.

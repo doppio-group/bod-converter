@@ -8,7 +8,9 @@ import CustomForm from "../components/customForm"
 import { NightMode } from "../components/nightMode"
 import "../components/index.css"
 import Footer from "../components/footer"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import whiteLogo from '../images/doppio-lockup-white.png' 
+import blackLogo from '../images/doppio-lockup-black.png' 
 
 class IndexPage extends React.Component {
 
@@ -21,16 +23,16 @@ class IndexPage extends React.Component {
             // Client-side-only code
             defaultDarkMode = window.localStorage.getItem("darkMode");
         }
-        defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
 
+        defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
         console.log("Default dark mode: " + defaultDarkMode)
 
-        // if (typeof document !== "undefined") {
-
-        // }
-
         this.darkModeHandler = this.darkModeHandler.bind(this)
-        this.state = { isDarkMode: defaultDarkMode }
+        this.state = {
+            isDarkMode: defaultDarkMode,
+            logoSource: defaultDarkMode === true ? whiteLogo : blackLogo,
+            // logoImage: getImage(data.blogPost.avatar)
+        }
     }
 
 
@@ -61,7 +63,8 @@ class IndexPage extends React.Component {
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
             localStorage.setItem("darkMode", "true");
             this.setState({
-                isDarkMode: true
+                isDarkMode: true,
+                logoSource: whiteLogo
             })
             // console.log("Setting state to true");
 
@@ -70,7 +73,8 @@ class IndexPage extends React.Component {
             document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
             localStorage.setItem("darkMode", "false");
             this.setState({
-                isDarkMode: false
+                isDarkMode: false,
+                logoSource: blackLogo
             })
             // console.log("Setting state to false");
         }
@@ -90,28 +94,28 @@ class IndexPage extends React.Component {
                     </div>
                     <div className="pageTitleDiv">
                         <div className='doppioLogo'>
-                            {
-                                this.state.isDarkMode === true ? <StaticImage
-                                    className='logo'
-                                    src="../images/dopio-lockup-white.png"
-                                    width={175}
-                                    alt={"Doppio Group"}
-                                    quality="100"
-                                /> : <StaticImage
-                                    className='logo'
-                                    src="../images/dopio-lockup-black.png"
-                                    width={175}
-                                    alt={"Doppio Group"}
-                                    quality="100"
-                                />
-                            }
+                            <img
+                                className='logo'
+                                src={this.state.logoSource}
+                                width={175}
+                                alt={"Doppio Group"}
+                                quality="100"
+                            />
+                            {/* <StaticImage
+                                className='logo'
+                                src={this.state.logoSource}
+                                width={175}
+                                alt={"Doppio Group"}
+                                quality="100"
+                            /> */}
+                            {/* <GatsbyImage image={ } /> */}
                             {this.state.isDarkMode === true ? console.log("dark") : console.log("light")}
                             {/* <StaticImage
                                 className='logo'
                                 src={this.props.isDarkMode === true ? "../images/dopio-lockup-black.png" : "../images/dopio-lockup-white.png"}
                                 width={175}
                                 alt={"Doppio Group"}
-                                quality="100"
+                                quality="100".
                             /> */}
                         </div>
                         <h1 className="pageTitle">
@@ -138,3 +142,15 @@ class IndexPage extends React.Component {
 export const Head = () => <Seo title="BOD Converter" />
 
 export default IndexPage
+
+export const imageData = graphql`
+  query {
+    file(relativePath: { eq: "images/heroImage.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1600, maxHeight: 800) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`
