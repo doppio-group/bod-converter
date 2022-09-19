@@ -142,15 +142,3 @@ class IndexPage extends React.Component {
 export const Head = () => <Seo title="BOD Converter" />
 
 export default IndexPage
-
-export const imageData = graphql`
-  query {
-    file(relativePath: { eq: "images/heroImage.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1600, maxHeight: 800) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`
