@@ -30,7 +30,7 @@ class CustomForm extends Component {
 
                         <label className="input">
                             <br />
-                            <input type='text' id='bodNoun' className="input__field" />
+                            <input type='text' id='bodNoun' className="input__field" autoComplete="off"/>
                             <span className="input__label">BOD Noun</span>
                         </label>
                         <br />
@@ -56,14 +56,14 @@ class CustomForm extends Component {
 
                         <label className="input">
                             <br />
-                            <input type='text' id='bodPrefix' className="input__field" />
+                            <input type='text' id='bodPrefix' className="input__field" autoComplete="off"/>
                             <span className="input__label">BOD Prefix (Optional)</span>
                         </label>
                         <br />
 
                         <label className="input">
                             <br />
-                            <textarea id='customEnvelope' className="input__field" rows="2" />
+                            <textarea id='customEnvelope' className="input__field" rows="2" autoComplete="off"/>
                             <span className="input__label">Custom Envelope (Optional)</span>
                         </label>
                         <br />
