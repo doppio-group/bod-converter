@@ -35,6 +35,7 @@ class IndexPage extends React.Component {
             logoSource: tempSource,
             // logoImage: getImage(data.blogPost.avatar)
         }
+        console.log(this.state.logoSource)
     }
 
 
@@ -54,16 +55,16 @@ class IndexPage extends React.Component {
             document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
             this.setState({
-                isDarkMode: true,
                 logoSource: whiteLogo
             })
+            console.log(this.state.logoSource)
         } else {
             document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
             this.setState({
-                isDarkMode: false,
                 logoSource: blackLogo
             })
+            console.log(this.state.logoSource)
         }
     }
 
@@ -76,6 +77,7 @@ class IndexPage extends React.Component {
                 isDarkMode: true,
                 logoSource: whiteLogo
             })
+            console.log(this.state.logoSource)
             // console.log("Setting state to true");
 
         } else {
@@ -86,6 +88,7 @@ class IndexPage extends React.Component {
                 isDarkMode: false,
                 logoSource: blackLogo
             })
+            console.log(this.state.logoSource)
             // console.log("Setting state to false");
         }
 
