@@ -26,11 +26,13 @@ class IndexPage extends React.Component {
 
         defaultDarkMode = defaultDarkMode === null || defaultDarkMode === undefined || defaultDarkMode === "false" ? false : true;
         console.log("Default dark mode: " + defaultDarkMode)
+        var tempSource = defaultDarkMode === true ? whiteLogo : blackLogo
+        console.log(tempSource)
 
         this.darkModeHandler = this.darkModeHandler.bind(this)
         this.state = {
             isDarkMode: defaultDarkMode,
-            logoSource: defaultDarkMode === true ? whiteLogo : blackLogo,
+            logoSource: tempSource,
             // logoImage: getImage(data.blogPost.avatar)
         }
     }
