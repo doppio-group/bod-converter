@@ -9,8 +9,8 @@ import { NightMode } from "../components/nightMode"
 import "../components/index.css"
 import Footer from "../components/footer"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import whiteLogo from '../images/doppio-lockup-white.png' 
-import blackLogo from '../images/doppio-lockup-black.png' 
+import whiteLogo from '../images/doppio-lockup-white.png'
+import blackLogo from '../images/doppio-lockup-black.png'
 
 class IndexPage extends React.Component {
 
@@ -53,9 +53,17 @@ class IndexPage extends React.Component {
         if (this.state.isDarkMode == true) {
             document.documentElement.style.setProperty('--color-background', 'var(--color-dark)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-light)');
+            this.setState({
+                isDarkMode: true,
+                logoSource: whiteLogo
+            })
         } else {
             document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
+            this.setState({
+                isDarkMode: false,
+                logoSource: blackLogo
+            })
         }
     }
 
