@@ -58,6 +58,7 @@ class IndexPage extends React.Component {
                 logoSource: whiteLogo
             })
             console.log(this.state.logoSource)
+            document.getElementsByClassName("logo")[0].src = whiteLogo
         } else {
             document.documentElement.style.setProperty('--color-background', 'var(--color-light)');
             document.documentElement.style.setProperty('--color-text', 'var(--color-dark)');
@@ -65,6 +66,7 @@ class IndexPage extends React.Component {
                 logoSource: blackLogo
             })
             console.log(this.state.logoSource)
+            document.getElementsByClassName("logo")[0].src = blackLogo
         }
     }
 
@@ -78,6 +80,7 @@ class IndexPage extends React.Component {
                 logoSource: whiteLogo
             })
             console.log(this.state.logoSource)
+            document.getElementsByClassName("logo")[0].src = whiteLogo
             // console.log("Setting state to true");
 
         } else {
@@ -89,6 +92,7 @@ class IndexPage extends React.Component {
                 logoSource: blackLogo
             })
             console.log(this.state.logoSource)
+            document.getElementsByClassName("logo")[0].src = blackLogo
             // console.log("Setting state to false");
         }
 
