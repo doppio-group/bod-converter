@@ -18,7 +18,7 @@ class CustomForm extends Component {
         console.log(this.props.isDarkMode)
 
         return (
-            <div>
+            <div className='mainContainer'>
                 <div className='container' >
                     <div className='customForm'>
                         <label htmlFor={'zapFile'} className={"input"}>

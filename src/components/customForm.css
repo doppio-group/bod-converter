@@ -20,12 +20,35 @@
     /* padding: 0 calc(var(--size-bezel) * 3); */
 }
 
+::-webkit-scrollbar {
+    width: 0.5vw;
+    background-color: grey;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--color-background);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-text);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /* background: #b30000; */
+}
+
 * {
     font-family: "Poppins", sans-serif;
 }
 
 body {
     margin: 0 !important;
+    margin-bottom: 100px !important;
 }
 
 @-webkit-keyframes zoomIn {
@@ -52,6 +75,11 @@ body {
     }
 }
 
+.mainContainer {
+    height: 90vh;
+    margin-bottom: 2vh;
+}
+
 .customForm {
     /* background-color: #dac2f3; */
     position: absolute;
@@ -66,8 +94,8 @@ body {
     border-radius: var(--size-radius);
     border: 3px solid var(--color-shadow, currentColor);
     box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
-    max-width: 25%;
-    width: 25%;
+    max-width: 30%;
+    width: 30%;
     float: left;
     left: 150px;
 }

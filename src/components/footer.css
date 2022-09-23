@@ -1,8 +1,10 @@
 .footer {
     position: fixed;
     bottom: 0px;
+    /* top: 0; */
     height: 55px;
-    margin-top: -55px;
+    /* margin-bottom: 500px; */
+    /* margin-top: 1000px; */
     width: 100%;
     background-color: var(--color-background);
     color: var(--color-text);
