@@ -26,14 +26,13 @@ class CustomForm extends Component {
                             <input type={'file'} id={'zapFile'} accept={'.zap'} className="input__field" />
                             <span className="input__label">Zap File</span>
                         </label>
-                        <br />
-
+                        <div className='emptySpace'></div>
                         <label className="input">
                             <br />
-                            <input type='text' id='bodNoun' className="input__field" autoComplete="off"/>
+                            <input type='text' id='bodNoun' className="input__field" autoComplete="off" />
                             <span className="input__label">BOD Noun</span>
                         </label>
-                        <br />
+                        <div className='emptySpace'></div>
                         <label className="input">
                             <br />
                             <select name="bodVerb" id="bodVerb" className="input__field">
@@ -43,7 +42,7 @@ class CustomForm extends Component {
                             </select>
                             <span className="input__label">BOD Verb</span>
                         </label>
-                        <br />
+                        <div className='emptySpace'></div>
                         <label className="input">
                             <br />
                             <select name="bodDirection" id="bodDirection" className="input__field">
@@ -52,22 +51,19 @@ class CustomForm extends Component {
                             </select>
                             <span className="input__label">BOD Direction</span>
                         </label>
-                        <br />
-
+                        <div className='emptySpace'></div>
                         <label className="input">
                             <br />
-                            <input type='text' id='bodPrefix' className="input__field" autoComplete="off"/>
+                            <input type='text' id='bodPrefix' className="input__field" autoComplete="off" />
                             <span className="input__label">BOD Prefix (Optional)</span>
                         </label>
-                        <br />
-
+                        <div className='emptySpace'></div>
                         <label className="input">
                             <br />
-                            <textarea id='customEnvelope' className="input__field" rows="2" autoComplete="off"/>
+                            <textarea id='customEnvelope' className="input__textarea" rows="3" autoComplete="off" />
                             <span className="input__label">Custom Envelope (Optional)</span>
                         </label>
-                        <br />
-
+                        <div className='emptySpace'></div>
                         <button id={'submitConverter'} onClick={convertBOD}>Convert</button>
                     </div>
                     <div className='instructions'>

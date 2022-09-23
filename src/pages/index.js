@@ -114,7 +114,7 @@ class IndexPage extends React.Component {
                             <img
                                 className='logo'
                                 src={this.state.logoSource}
-                                width={175}
+                                // width={175}
                                 alt={"Doppio Group"}
                                 quality="100"
                             />

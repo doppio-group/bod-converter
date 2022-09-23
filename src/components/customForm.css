@@ -7,8 +7,8 @@
     --color-text: var(--color-dark);
     --color-accent: var(--color-signal);
 
-    --size-bezel: .5rem;
-    --size-radius: 4px;
+    /* --size-bezel: .5rem;
+    --size-radius: 4px; */
 
     line-height: 1.4;
 
@@ -48,7 +48,7 @@
 
 body {
     margin: 0 !important;
-    margin-bottom: 100px !important;
+    margin-bottom: 10% !important;
 }
 
 @-webkit-keyframes zoomIn {
@@ -76,28 +76,37 @@ body {
 }
 
 .mainContainer {
-    height: 90vh;
-    margin-bottom: 2vh;
+    /* height: 90vh; */
+    /* margin-bottom: 2vh; */
+    /* height: 110vh; */
+    /* margin-bottom: 15%; */
 }
 
 .customForm {
     /* background-color: #dac2f3; */
     position: absolute;
-    padding: 20px;
-    border-radius: 10px;
-    border: solid 2px #7026b9;
-
+    top: 12%;
     background: var(--color-background);
-    padding: calc(4 * var(--size-bezel));
+    /* padding: calc(4 * var(--size-bezel)); */
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+
     /* margin-top: calc(4 * var(--size-bezel)); */
-    margin-top: 15px;
-    border-radius: var(--size-radius);
+    /* margin-top: 15px; */
     border: 3px solid var(--color-shadow, currentColor);
     box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
     max-width: 30%;
     width: 30%;
+    height: 75%;
+    max-height: 75%;
     float: left;
-    left: 150px;
+    left: 10%;
+}
+
+.emptySpace {
+    height: 2.5%;
 }
 
 .input {
@@ -107,18 +116,22 @@ body {
 .input__label {
     position: absolute;
     left: 0;
-    top: 0;
-    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
-    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
-    background: pink;
+    top: 2%;
+    /* padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5); */
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: 3% 3%;
     white-space: nowrap;
     transform: translate(0, 0);
     transform-origin: 0 0;
     background: var(--color-background);
     transition: transform 120ms ease-in;
     font-weight: 500;
-    font-size: smaller;
-    line-height: 0.5;
+    font-size: 80%;
+    /* font-size: smaller; */
+    /* line-height: 0.5; */
+    /* height: 22%; */
 }
 
 .input__field {
@@ -126,11 +139,14 @@ body {
     display: block;
     width: 100%;
     border: 3px solid currentColor;
-    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+    padding: 2%;
+    /* padding: calc(var(--size-bezel) * 1.5) var(--size-bezel); */
     color: currentColor;
     background: transparent;
-    border-radius: var(--size-radius);
-    font-size: medium;
+    /* border-radius: 1%; */
+    /* border-radius: var(--size-radius); */
+    font-size: 75%;
+    height: 8%;
 
     /* &:focus,
     &:not(:placeholder-shown) {
@@ -139,6 +155,39 @@ body {
         color: var(--color-accent);
       }
     } */
+}
+
+.input__textarea {
+    box-sizing: border-box;
+    resize: none;
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border: 3px solid currentColor;
+    padding: 2%;
+    /* padding: calc(var(--size-bezel) * 1.5) var(--size-bezel); */
+    color: currentColor;
+    background: transparent;
+    /* border-radius: 1%; */
+    /* border-radius: var(--size-radius); */
+    font-size: 75%;
+    height: 15%;
+    max-height: 15%;
+    min-height: 15%;
+
+    /* &:focus,
+    &:not(:placeholder-shown) {
+      & + .input__label {
+        transform: translate(.25rem, -65%) scale(.8);
+        color: var(--color-accent);
+      }
+    } */
+}
+
+textarea {
+    height: 25%;
+
 }
 
 /* .input:focus+.input__label {
@@ -159,31 +208,33 @@ body {
 
 button {
     color: currentColor;
-    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+    padding: 2%;
     /* background: var(--color-accent); */
     border: none;
-    border-radius: var(--size-radius);
-    font-weight: 900;
+    /* font-weight: 800; */
+    margin-top: 2%;
     cursor: pointer;
     background-color: var(--color-text);
     color: var(--color-background);
+    font-size: 75%;
+    height: 7%;
 }
 
 
 .instructions {
     position: absolute;
     float: right;
-    right: 150px;
-    width: 30%;
+    right: 10%;
+    top: 12%;
     max-width: 30%;
-    position: absolute;
-    padding: 20px;
-    margin-top: 15px;
+    width: 30%;
+    height: 75%;
+    max-height: 75%;
     border-radius: 10px;
-    border: solid 2px #7026b9;
-
+    font-size: 100%;
     background: var(--color-background);
-    padding: calc(4 * var(--size-bezel));
+    /* padding: calc(4 * var(--size-bezel)); */
+    padding: 2%;
     /* margin-top: calc(4 * var(--size-bezel)); */
     border-radius: var(--size-radius);
     border: 3px solid var(--color-shadow, currentColor);
@@ -453,8 +504,14 @@ button {
 
 .doppioLogo {
     position: absolute;
-    left: 150px;
-    top: 50px;
+    left: 10%;
+    top: 5%;
+    margin-top: 1%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.logo {
+    width: 10vw;
+    height: auto;
 }

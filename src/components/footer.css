@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 0px;
     /* top: 0; */
-    height: 55px;
+    height: 5.5%;
     /* margin-bottom: 500px; */
     /* margin-top: 1000px; */
     width: 100%;
@@ -14,7 +14,7 @@
     /* border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-radius: 10px; */
-    font-size: 0.9em;
+    font-size: 1.5vh;
     font-weight: 400;
     /* transition: transofrm 1s; */
 }

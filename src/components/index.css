@@ -1,7 +1,8 @@
 .pageTitleDiv {
     width: 50%;
+    font-size: 120%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 1%;
     /* right: 30px; */
     /* background-color: grey; */
 }
